@@ -174,7 +174,7 @@ public class BasicEntityExtractor implements Extractor  {
       // this is an entity end boundary followed by O
       if (type == null && lastType != null) {
         makeEntityMention(sentence, startIndex, i, lastType, extractedEntities, sentCount);
-        logger.info("Found entity: " + extractedEntities.get(extractedEntities.size() - 1));
+        logger.fine("Found entity: " + extractedEntities.get(extractedEntities.size() - 1));
         startIndex = -1;
       }
 
@@ -189,7 +189,7 @@ public class BasicEntityExtractor implements Extractor  {
           (lastType.startsWith("I-") && type.startsWith("I-") && ! lastType.equals(type)) ||
           (notBIO(lastType) && notBIO(type) && ! lastType.equals(type)))){
         makeEntityMention(sentence, startIndex, i, lastType, extractedEntities, sentCount);
-        logger.info("Found entity: " + extractedEntities.get(extractedEntities.size() - 1));
+        logger.fine("Found entity: " + extractedEntities.get(extractedEntities.size() - 1));
         startIndex = i;
       }
 

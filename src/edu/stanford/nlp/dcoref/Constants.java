@@ -121,35 +121,35 @@ public class Constants {
 
   /** print the values of variables in this class */
   public static void printConstants(Logger logger) {
-    if (Constants.USE_ANIMACY_LIST) logger.info("USE_ANIMACY_LIST on");
-    else logger.info("USE_ANIMACY_LIST off");
-    if (Constants.USE_ANIMACY_LIST) logger.info("USE_ANIMACY_LIST on");
-    else logger.info("USE_ANIMACY_LIST off");
-    if (Constants.USE_DISCOURSE_SALIENCE) logger.info("use discourse salience");
-    else logger.info("not use discourse salience");
-    if (Constants.USE_TRUECASE) logger.info("use truecase annotator");
-    else logger.info("not use truecase annotator");
-    if (Constants.USE_DISCOURSE_CONSTRAINTS) logger.info("USE_DISCOURSE_CONSTRAINTS on");
-    else logger.info("USE_DISCOURSE_CONSTRAINTS off");
-    if (Constants.USE_GOLD_POS) logger.info("USE_GOLD_POS on");
-    else logger.info("USE_GOLD_POS off");
-    if (Constants.USE_GOLD_NE) logger.info("use gold NE type annotation");
-    else logger.info("use Stanford NER");
-    if (Constants.USE_GOLD_PARSES) logger.info("USE_GOLD_PARSES on");
-    else logger.info("USE_GOLD_PARSES off");
-    if (Constants.USE_GOLD_SPEAKER_TAGS) logger.info("USE_GOLD_SPEAKER_TAGS on");
-    else logger.info("USE_GOLD_SPEAKER_TAGS off");
-    if (Constants.USE_GOLD_MENTIONS) logger.info("USE_GOLD_MENTIONS on");
-    else logger.info("USE_GOLD_MENTIONS off");
-    if (Constants.USE_GOLD_MENTION_BOUNDARIES) logger.info("USE_GOLD_MENTION_BOUNDARIES on");
-    else logger.info("USE_GOLD_MENTION_BOUNDARIES off");
-    if (Constants.USE_CONLL_AUTO) logger.info("use conll auto set -> if GOLD_NE, GOLD_PARSE, GOLD_POS, etc turned on, use auto");
-    else logger.info("use conll gold set -> if GOLD_NE, GOLD_PARSE, GOLD_POS, etc turned on, use gold");
-    if (Constants.REMOVE_SINGLETONS) logger.info("REMOVE_SINGLETONS on");
-    else logger.info("REMOVE_SINGLETONS off");
-    if (Constants.REMOVE_APPOSITION_PREDICATENOMINATIVES) logger.info("REMOVE_APPOSITION_PREDICATENOMINATIVES on");
-    else logger.info("REMOVE_APPOSITION_PREDICATENOMINATIVES off");
-    logger.info("=================================================================");
+    if (Constants.USE_ANIMACY_LIST) logger.finer("USE_ANIMACY_LIST on");
+    else logger.finer("USE_ANIMACY_LIST off");
+    if (Constants.USE_ANIMACY_LIST) logger.finer("USE_ANIMACY_LIST on");
+    else logger.finer("USE_ANIMACY_LIST off");
+    if (Constants.USE_DISCOURSE_SALIENCE) logger.finer("use discourse salience");
+    else logger.finer("not use discourse salience");
+    if (Constants.USE_TRUECASE) logger.finer("use truecase annotator");
+    else logger.finer("not use truecase annotator");
+    if (Constants.USE_DISCOURSE_CONSTRAINTS) logger.finer("USE_DISCOURSE_CONSTRAINTS on");
+    else logger.finer("USE_DISCOURSE_CONSTRAINTS off");
+    if (Constants.USE_GOLD_POS) logger.finer("USE_GOLD_POS on");
+    else logger.finer("USE_GOLD_POS off");
+    if (Constants.USE_GOLD_NE) logger.finer("use gold NE type annotation");
+    else logger.finer("use Stanford NER");
+    if (Constants.USE_GOLD_PARSES) logger.finer("USE_GOLD_PARSES on");
+    else logger.finer("USE_GOLD_PARSES off");
+    if (Constants.USE_GOLD_SPEAKER_TAGS) logger.finer("USE_GOLD_SPEAKER_TAGS on");
+    else logger.finer("USE_GOLD_SPEAKER_TAGS off");
+    if (Constants.USE_GOLD_MENTIONS) logger.finer("USE_GOLD_MENTIONS on");
+    else logger.finer("USE_GOLD_MENTIONS off");
+    if (Constants.USE_GOLD_MENTION_BOUNDARIES) logger.finer("USE_GOLD_MENTION_BOUNDARIES on");
+    else logger.finer("USE_GOLD_MENTION_BOUNDARIES off");
+    if (Constants.USE_CONLL_AUTO) logger.finer("use conll auto set -> if GOLD_NE, GOLD_PARSE, GOLD_POS, etc turned on, use auto");
+    else logger.finer("use conll gold set -> if GOLD_NE, GOLD_PARSE, GOLD_POS, etc turned on, use gold");
+    if (Constants.REMOVE_SINGLETONS) logger.finer("REMOVE_SINGLETONS on");
+    else logger.finer("REMOVE_SINGLETONS off");
+    if (Constants.REMOVE_APPOSITION_PREDICATENOMINATIVES) logger.finer("REMOVE_APPOSITION_PREDICATENOMINATIVES on");
+    else logger.finer("REMOVE_APPOSITION_PREDICATENOMINATIVES off");
+    logger.finer("=================================================================");
   }
 
 }
