@@ -209,7 +209,7 @@ public class EventMention extends RelationMention  {
       String an = e.getArgNames().get(i);
       // TODO: we might need more complex cycle detection than just contains()...
       if(a instanceof EventMention && ((EventMention) a).contains(this)){
-        logger.info("Found event cycle during merge between e1 " + this + " and e2 " + e);
+        logger.fine("Found event cycle during merge between e1 " + this + " and e2 " + e);
       } else {
         // remove e from a's parents
         if(a instanceof EventMention) ((EventMention) a).removeParent(e);

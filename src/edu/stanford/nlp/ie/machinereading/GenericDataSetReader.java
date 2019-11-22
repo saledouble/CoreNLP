@@ -227,7 +227,7 @@ public class GenericDataSetReader  {
       headPos = label.get(CoreAnnotations.BeginIndexAnnotation.class);
     } else {
       logger.fine("WARNING: failed to find syntactic head for entity: " + ent + " in tree: " + tree);
-      logger.fine("Fallback strategy: will set head to last token in mention: " + tokens.get(headPos));
+      logger.finest("Fallback strategy: will set head to last token in mention: " + tokens.get(headPos));
     }
     ent.setHeadTokenPosition(headPos);
 
@@ -430,7 +430,7 @@ public class GenericDataSetReader  {
   }
 
   private Tree funkyFindLeafWithApproximateSpan(Tree root, String token, int index, int approximateness) {
-    logger.fine("Looking for " + token + " at pos " + index + " plus upto " + approximateness + " in tree: " + root.pennString());
+    logger.finest("Looking for " + token + " at pos " + index + " plus upto " + approximateness + " in tree: " + root.pennString());
     List<Tree> leaves = root.getLeaves();
     for (Tree leaf : leaves) {
       CoreLabel label = CoreLabel.class.cast(leaf.label());
@@ -460,7 +460,7 @@ public class GenericDataSetReader  {
    *     It will be a leaf in the parse tree.
    */
   public Tree originalFindSyntacticHead(EntityMention ent, Tree root, List<CoreLabel> tokens) {
-    logger.fine("Searching for tree matching " + ent);
+    logger.finer("Searching for tree matching " + ent);
     Tree exactMatch = findTreeWithSpan(root, ent.getExtentTokenStart(), ent.getExtentTokenEnd());
 
     //
@@ -480,7 +480,7 @@ public class GenericDataSetReader  {
       extentTokens.add(tokens.get(i));
 
     Tree tree = parse(extentTokens);
-    logger.fine("No exact match found. Local parse:\n" + tree.pennString());
+    logger.finer("No exact match found. Local parse:\n" + tree.pennString());
     convertToCoreLabels(tree);
     tree.indexSpans(ent.getExtentTokenStart());
     Tree extentHead = safeHead(tree);

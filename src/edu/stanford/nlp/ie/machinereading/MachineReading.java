@@ -551,7 +551,7 @@ public class MachineReading  {
       for (RelationMention rm : relationMentions) {
         rm.setSentence(sent);
         if (rm.replaceGoldArgsWithPredicted(entityMentions)) {
-          MachineReadingProperties.logger.info("Successfully mapped all arguments in relation mention: " + rm);
+          MachineReadingProperties.logger.fine("Successfully mapped all arguments in relation mention: " + rm);
           newRels.add(rm);
         } else {
           MachineReadingProperties.logger.info("Dropped relation mention due to failed argument mapping: " + rm);
@@ -580,7 +580,7 @@ public class MachineReading  {
 
       for (ResultsPrinter rp : entityResultsPrinterSet){
         String msg = rp.printResults(testing, predicted);
-        MachineReadingProperties.logger.info("Entity extraction results " + (partition != -1 ? "for partition #" + partition : "") + " using printer " + rp.getClass() + ":\n" + msg);
+        MachineReadingProperties.logger.fine("Entity extraction results " + (partition != -1 ? "for partition #" + partition : "") + " using printer " + rp.getClass() + ":\n" + msg);
       }
       predictions[ENTITY_LEVEL][partitionIndex] = predicted;
     }
@@ -606,7 +606,7 @@ public class MachineReading  {
 
       for (ResultsPrinter rp : getRelationResultsPrinterSet()){
         String msg = rp.printResults(testing, predicted);
-        MachineReadingProperties.logger.info("Relation extraction results " + (partition != -1 ? "for partition #" + partition : "") + " using printer " + rp.getClass() + ":\n" + msg);
+        MachineReadingProperties.logger.fine("Relation extraction results " + (partition != -1 ? "for partition #" + partition : "") + " using printer " + rp.getClass() + ":\n" + msg);
       }
 
       //
@@ -621,11 +621,11 @@ public class MachineReading  {
 
         for (ResultsPrinter rp : entityResultsPrinterSet){
           String msg = rp.printResults(testing, predicted);
-          MachineReadingProperties.logger.info("Entity extraction results AFTER consistency checks " + (partition != -1 ? "for partition #" + partition : "") + " using printer " + rp.getClass() + ":\n" + msg);
+          MachineReadingProperties.logger.fine("Entity extraction results AFTER consistency checks " + (partition != -1 ? "for partition #" + partition : "") + " using printer " + rp.getClass() + ":\n" + msg);
         }
         for (ResultsPrinter rp : getRelationResultsPrinterSet()){
           String msg = rp.printResults(testing, predicted);
-          MachineReadingProperties.logger.info("Relation extraction results AFTER consistency checks " + (partition != -1 ? "for partition #" + partition : "") + " using printer " + rp.getClass() + ":\n" + msg);
+          MachineReadingProperties.logger.fine("Relation extraction results AFTER consistency checks " + (partition != -1 ? "for partition #" + partition : "") + " using printer " + rp.getClass() + ":\n" + msg);
         }
       }
 
@@ -768,7 +768,7 @@ public class MachineReading  {
   }
 
   private static Set<ResultsPrinter> makeResultsPrinters(String classes, String[] args) {
-    MachineReadingProperties.logger.info("Making result printers from " + classes);
+    MachineReadingProperties.logger.fine("Making result printers from " + classes);
     String[] printerClassNames = classes.trim().split(",\\s*");
     HashSet<ResultsPrinter> printers = new HashSet<>();
     for (String printerClassName : printerClassNames) {
@@ -897,22 +897,22 @@ public class MachineReading  {
     // if the serialized file exists, just read it. otherwise read the source
     // and and save the serialized file to disk
     if (MachineReadingProperties.serializeCorpora && serializedSentences.exists() && !forceParseSentences) {
-      MachineReadingProperties.logger.info("Loaded serialized sentences from " + serializedSentences.getAbsolutePath() + "...");
+      MachineReadingProperties.logger.fine("Loaded serialized sentences from " + serializedSentences.getAbsolutePath() + "...");
       corpusSentences = IOUtils.readObjectFromFile(serializedSentences);
-      MachineReadingProperties.logger.info("Done. Loaded " + corpusSentences.get(CoreAnnotations.SentencesAnnotation.class).size() + " sentences.");
+      MachineReadingProperties.logger.fine("Done. Loaded " + corpusSentences.get(CoreAnnotations.SentencesAnnotation.class).size() + " sentences.");
     } else {
       // read the corpus
-      MachineReadingProperties.logger.info("Parsing corpus sentences...");
+      MachineReadingProperties.logger.fine("Parsing corpus sentences...");
       if(MachineReadingProperties.serializeCorpora)
         MachineReadingProperties.logger.info("These sentences will be serialized to " + serializedSentences.getAbsolutePath());
       corpusSentences = reader.parse(sentencesPath);
-      MachineReadingProperties.logger.info("Done. Parsed " + AnnotationUtils.sentenceCount(corpusSentences) + " sentences.");
+      MachineReadingProperties.logger.fine("Done. Parsed " + AnnotationUtils.sentenceCount(corpusSentences) + " sentences.");
 
       // save corpusSentences
       if(MachineReadingProperties.serializeCorpora){
         MachineReadingProperties.logger.info("Serializing parsed sentences to " + serializedSentences.getAbsolutePath() + "...");
         IOUtils.writeObjectToFile(corpusSentences,serializedSentences);
-        MachineReadingProperties.logger.info("Done. Serialized " + AnnotationUtils.sentenceCount(corpusSentences) + " sentences.");
+        MachineReadingProperties.logger.fine("Done. Serialized " + AnnotationUtils.sentenceCount(corpusSentences) + " sentences.");
       }
     }
     return corpusSentences;

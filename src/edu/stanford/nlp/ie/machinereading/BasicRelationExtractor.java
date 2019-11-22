@@ -245,9 +245,9 @@ public class BasicRelationExtractor implements Extractor {
       predictedLabels.add(label);
 
       if(! testDatum.label().equals(label)){
-        logger.info("Classification: found different type " + label + " for relation: " + testDatum);
+        logger.fine("Classification: found different type " + label + " for relation: " + testDatum);
       } else{
-        logger.info("Classification: found similar type " + label + " for relation: " + testDatum);
+        logger.fine("Classification: found similar type " + label + " for relation: " + testDatum);
       }
     }
 
